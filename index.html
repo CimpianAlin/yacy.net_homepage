@@ -1,95 +1,126 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!--
+  (C) by Michael Peter Christen, mc (at) yacy.net
+  licensed under a Creative Commons Attribution 2.0 Generic License (CC-BY 2.0)
+-->
+<head>
+  <title id="title"></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <!-- scary MS stuff ahead to prevent that IE runs in "IE=EmulateIE10" mode which cannot run our JS code for some reason -->
+  <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+<!--
+if you don't see the glyphicons in firefox and you opened this file from a local filesystem,
+then a CORS security setting in firefox caused that.
+No other browser is that strict and there is no work around. To see the glyphicons in firefox,
+open about:config and set security.fileuri.strict_origin_policy to ‘false.’
+-->
+<link rel="shortcut icon" type="image/x-icon" href="img/favicon_2011.ico" />
+<meta name="Content-Language" content="English, Englisch" />
+<meta name="keywords" content="YaCy HTTP search engine spider indexer java network open free download Mac Windows Linux Software development" />
+<meta name="description" content="Software HTTP Freeware Home Page" />
+<meta name="copyright" content="Michael Christen et al." />
 
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <style>
-            body {
-                padding-top: 50px;
-                padding-bottom: 20px;
-            }
-        </style>
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.css" rel="stylesheet">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Project name</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
+<script src="js/vendor/jquery-1.11.2.js"></script>
+<script src="js/vendor/bootstrap.js"></script>
+
+
+<!-- Custom styles for this template, i.e. navigation (move this to base.css) -->
+<link href="css/yacy/bootstrap-base.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.js"></script>
+    <script src="bootstrap/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- old css styles -->
+    <link rel="stylesheet" type="text/css" media="all" href="css/yacy/base.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/yacy/style.css" />
+  <!--[if lt IE 6]>
+   <link rel="stylesheet" type="text/css" media="screen" href="css/oldie.css" />
+   <![endif]-->
+  <!--[if lte IE 6.0]>
+   <link rel="stylesheet" type="text/css" media="screen" href="css/ie6.css" />
+   <![endif]-->
+  <!--[if lte IE 7.0]>
+   <link rel="stylesheet" type="text/css" media="screen" href="css/ie7.css" />
+   <![endif]-->
+ </head>
+ <body id="index">
+
+  <!-- top navigation -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="homepage" class="navbar-brand" href="http://yacy.net" style="position:absolute;top:-6px;display:inline;white-space:nowrap;">
+          <img id="logo" class="yacylogo" src="img/YaCyLogo.png" style="height:auto; width:auto; max-width:200px; max-height:32px;vertical-align:middle">
+        </a>
+        <span id="topmenu" style="position:absolute;top:12px;left:80px;display:inline;white-space:nowrap;font-size:2em;"></span>
       </div>
-    </nav>
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <li id="header_help" class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-question-sign"></span></a>
+            <ul class="dropdown-menu">
+              <li id="header_profile"><a href="about.html?">About This Page</a></li>
+              <li id="header_tutorial"><a href="http://yacy.net/tutorials/">YaCy Tutorials</a></li>
+              <li class="divider"></li>
+              <li id="header_tutorial"><a href="http://yacy.net" target="_blank"><i>external</i>&nbsp;&nbsp;&nbsp;Download YaCy</a></li>
+              <li id="header_tutorial"><a href="http://forum.yacy.de" target="_blank"><i>external</i>&nbsp;&nbsp;&nbsp;Community (Web Forums)</a></li>
+              <li id="header_tutorial"><a href="http://wiki.yacy.de" target="_blank"><i>external</i>&nbsp;&nbsp;&nbsp;Project Wiki</a></li>
+              <li id="header_tutorial"><a href="https://github.com/yacy/yacy_search_server/commits/master" target="_blank"><i>external</i>&nbsp;&nbsp;&nbsp;Git Repository</a></li>
+              <li id="header_tutorial"><a href="http://bugs.yacy.net" target="_blank"><i>external</i>&nbsp;&nbsp;&nbsp;Bugtracker</a></li>
+            </ul>
+          </li> -->
+          <li class="active"><a href="">Home</a></li>
+          <li><a href="">About Yacy</a></li>
+          <li><a href="">Tutorials</a></li>
+          <li><a href="">Search Portal</a></li>
+          <li><a href="">Screenshots</a></li>
+          <li><a href="">Philosophy</a></li>
+          <li><a href="">API</a></li>
+          <li><a href="">Technology</a></li>
+          <li><a href="">About Us</a></li>
+        </ul>
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+  <header class="yacy-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="yacy-heading">Web Search by the people, for the people</h1>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    </header>
+
+  <div class="container">
+
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-8">
+                <p>YaCy is a free search engine that anyone can use to build a search portal for their intranet or to help search the public internet. When contributing to the world-wide peer network, the scale of YaCy is limited only by the number of users in the world and can index billions of web pages. It is fully decentralized, all users of the search engine network are equal, the network does not store user search requests and it is not possible for anyone to censor the content of the shared index. We want to achieve freedom of information through a free, distributed web search which is powered by the world's users.</p>
+                <p>
+                    <a class="btn btn-default btn-lg" href="#">Call to Action »</a>
+                </p>
+            </div>
         </div>
-      </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Company 2015</p>
-      </footer>
-    </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
-
-        <script src="js/vendor/bootstrap.min.js"></script>
-
-        <script src="js/main.js"></script>
-    </body>
+        <!-- /.row -->
+    </div>
+</div>
+<!-- modify content according to query url attributes -->
+</body>
 </html>
